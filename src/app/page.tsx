@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
-  const [childData, setChildData] = useState('What is life?');
+  const [childData, setChildData] = useState('');
   const [question, setQuestion] = useState('')
 
   const handleChange = (data: string) => {
