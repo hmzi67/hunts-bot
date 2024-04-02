@@ -24,15 +24,15 @@ const SearchForm: React.FC<Props> = (({ inputQuery, inputQuestion }) => {
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        const text = response.text();
+        const text = await response.text();
         setData(text)
         inputQuery(data)
     }
     
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         inputQuestion(input)
-        run(input)
+        await run(input); // Await the async function here
         setInput("")
     }
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
